@@ -29,9 +29,14 @@ public class TicketMapper {
         }
 
         if(!entity.getStatus().equals("REGISTERED")){
-            domain.setAssignedTo(UserMapper.toDomain(entity.getAssignedTo()));
+            if(entity.getAssignedTo() != null) {
+                domain.setAssignedTo(UserMapper.toDomain(entity.getAssignedTo()));
+            }
 
-            domain.setComments(entity.getCommentEntities().stream().map(CommentMapper::toDomain).collect(Collectors.toList()));
+            if(entity.getCommentEntities() != null ) {
+                domain.setComments(entity.getCommentEntities().stream().map(CommentMapper::toDomain).collect(Collectors.toList()));
+            }
+
 
             if(entity.getResolutionEntity() != null){
                 domain.setResolution(ResolutionMapper.toDomain(entity.getResolutionEntity()));

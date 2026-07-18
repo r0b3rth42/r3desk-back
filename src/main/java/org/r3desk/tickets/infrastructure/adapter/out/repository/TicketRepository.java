@@ -87,5 +87,15 @@ public class TicketRepository implements PanacheRepository<TicketEntity>, Ticket
         return ResolutionMapper.toDomain(entity);
     }
 
+    @Override
+    public long countAssignedTickets(Long userId){
+
+        return count(
+                "assignedTo.id",
+                userId
+        );
+
+    }
+
 
 }

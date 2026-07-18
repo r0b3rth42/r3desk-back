@@ -5,9 +5,11 @@ package org.r3desk.tickets.domain.model;
 public class User {
 
     private Long id;
-    private String username;
-    private String passwordHash;
+    private String nombre;
+    private String cognitoId;
     private String role;
+
+    private String email;
 
     public Long getId() {
         return id;
@@ -17,20 +19,20 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getPasswordHash() {
-        return passwordHash;
+    public String getCognitoId() {
+        return cognitoId;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setCognitoId(String cognitoId) {
+        this.cognitoId = cognitoId;
     }
 
     public String getRole() {
@@ -39,5 +41,13 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

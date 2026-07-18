@@ -9,6 +9,8 @@ import org.r3desk.tickets.domain.port.in.ResolvedTIcketUseCase;
 import org.r3desk.tickets.domain.port.out.RegisterTicketStatusRepositoryPort;
 import org.r3desk.tickets.domain.port.out.TicketRepositoryPort;
 
+import java.time.LocalDateTime;
+
 @ApplicationScoped
 public class ResolvedTicketService implements ResolvedTIcketUseCase {
 
@@ -28,6 +30,8 @@ public class ResolvedTicketService implements ResolvedTIcketUseCase {
         status.setNewStatus("RESOLVED");
         status.setChangedBy(user);
         registerTicketStatusRepositoryPort.execute(status, ticketId);
+        ticketRepositoryPort.alignStatus(status.getNewStatus(), ticketId, LocalDateTime.now());
         return ticketRepositoryPort.saveResolution(request, ticketId);
+
     }
 }

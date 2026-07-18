@@ -21,5 +21,7 @@ public interface TicketRepositoryPort {
     List<Comment> listComments(Long ticketId);
 
     Resolution saveResolution(Resolution domain, Long ticketId);
+
+    long countAssignedTickets(Long userId);
 }
 

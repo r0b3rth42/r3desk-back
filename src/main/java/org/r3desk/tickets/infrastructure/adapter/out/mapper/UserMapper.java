@@ -9,7 +9,7 @@ public class UserMapper {
 
         var domain = new User();
         domain.setId(entity.getId());
-        domain.setUsername(entity.getNombre());
+        domain.setNombre(entity.getNombre());
         domain.setRole(entity.getRole());
         return domain;
     }
@@ -17,7 +17,7 @@ public class UserMapper {
     public static UserEntity toEntity(User domain) {
         var entity = new UserEntity();
         entity.setId(domain.getId());
-        entity.setNombre(domain.getUsername());
+        entity.setNombre(domain.getNombre());
         entity.setRole(domain.getRole());
         return entity;
     }
