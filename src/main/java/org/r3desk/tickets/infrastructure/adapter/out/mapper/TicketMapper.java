@@ -24,7 +24,10 @@ public class TicketMapper {
         domain.setSourceGroup(GrupoMapper.toDomain(entity.getSourceGroupEntity()));
         domain.setTargetGroup(GrupoMapper.toDomain(entity.getTargetGroupEntity()));
         domain.setRequester(UserMapper.toDomain(entity.getRequester()));
-        domain.setHistories(entity.getHistories().stream().map(HistoryMapper::toDomain).toList());
+        if(entity.getHistories() != null) {
+            domain.setHistories(entity.getHistories().stream().map(HistoryMapper::toDomain).toList());
+        }
+
         if(!entity.getStatus().equals("REGISTERED")){
             domain.setAssignedTo(UserMapper.toDomain(entity.getAssignedTo()));
 

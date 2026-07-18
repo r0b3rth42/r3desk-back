@@ -3,6 +3,7 @@ package org.r3desk.tickets.presentation.resource;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.r3desk.tickets.domain.port.in.DashboardUseCase;
 import org.r3desk.tickets.presentation.dto.DashboardResponse;
 
@@ -11,10 +12,14 @@ import org.r3desk.tickets.presentation.dto.DashboardResponse;
 @Produces(MediaType.APPLICATION_JSON)
 public class DashboardResource {
 
+
+    private final JsonWebToken jwt;
     private final DashboardUseCase dashboardUseCase;
 
-    public DashboardResource(DashboardUseCase dashboardUseCase) {
+    public DashboardResource(DashboardUseCase dashboardUseCase,
+                             JsonWebToken jsonWebToken) {
         this.dashboardUseCase = dashboardUseCase;
+        this.jwt = jsonWebToken;
     }
 
     @GET
