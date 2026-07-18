@@ -10,7 +10,10 @@ public class GrupoMapper {
         domain.setId(entity.getId());
         domain.setNombre(entity.getNombre());
         domain.setStatus(entity.getStatus());
-        domain.setArea(AreaMapper.toDomain(entity.getArea()));
+        if(entity.getArea() != null){
+            domain.setArea(AreaMapper.toDomain(entity.getArea()));
+        }
+
         return domain;
     }
 
@@ -19,7 +22,10 @@ public class GrupoMapper {
         entity.setId(domain.getId());
         entity.setNombre(domain.getNombre());
         entity.setStatus(domain.getStatus());
-        entity.setArea(AreaMapper.toEntity(domain.getArea()));
+        if(domain.getArea() != null){
+            entity.setArea(AreaMapper.toEntity(domain.getArea()));
+        }
+
         return entity;
     }
 }

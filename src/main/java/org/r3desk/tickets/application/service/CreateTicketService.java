@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @ApplicationScoped
 public class CreateTicketService implements CreateTicketUseCase {
 
+
     private final TicketRepositoryPort repository;
     private final RegisterTicketStatusRepositoryPort registerTicketStatusRepositoryPort;
     private final TicketCodeGeneratorPort codeGeneratorPort;
