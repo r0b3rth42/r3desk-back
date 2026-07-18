@@ -1,4 +1,4 @@
-# r3desk
+# r3desk sistema de control de tkts
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
